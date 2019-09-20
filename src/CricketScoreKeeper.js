@@ -43,7 +43,7 @@ let addScore = (team,scoreStr) => {
                 check = false;
             }
         }
-        team.currentOver += 1
+        if(check) team.currentOver += 1
     }else{
         message ='6 balls in an over. Please fix score.'
     }
