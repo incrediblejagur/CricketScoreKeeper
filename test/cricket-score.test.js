@@ -9,7 +9,6 @@ describe("Cricket Score Keeper Test", function () {
             cricket_score.setOver(10)
             cricket_score.addScore('team1','1-22-4')
             cricket_score.addScore('team1','1-6w-6')
-
         assert.deepEqual(cricket_score.returnOver(), { team1: '22-1 over:2/10', team2: '0-0 over:0/10' })
         });
         it('Should return score after 3 overs for team2', function () {

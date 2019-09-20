@@ -94,13 +94,22 @@ let errorMessage = () => {
     return message
 }
 
+let reset = () => {
+    setOvers = 0
+    let teams = [team1,team2]
+    for(let z of teams){
+        for(x in z){
+            z[x] = 0;
+        }
+    }
+}
 
 return{
     addScore,
     setOver,
     returnOver,
     errorMessage,
-    whoWhon
-
+    whoWhon,
+    reset
 }
 }

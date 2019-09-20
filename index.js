@@ -30,7 +30,6 @@ app.use(bodyParser.json());
 
 
 app.get('/', function (req, res) {
-  console.log(cricket_score.whoWhon())
   res.render('index', {
     team1: cricket_score.returnOver().team1,
     team2: cricket_score.returnOver().team2,
@@ -39,6 +38,10 @@ app.get('/', function (req, res) {
   })
 });
 
+app.get('/reset', function (req, res) {
+cricket_score.reset()
+res.redirect('/')
+})
 app.post('/add/:team', function (req, res){
   let score = req.body.inputB
   let team = req.params.team
