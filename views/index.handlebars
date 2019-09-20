@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Cricket Score Keeper</h1>
+    <p class="">No Runs:<code>'-'</code> | Wicket:<code>'W'</code></p>
+    {{!-- <hr class="my-2"> --}}
+    <nav class="navbar navbar-dark bg-primary" style="border-radius: 5px;">
+      <ul class="nav nav-tabs" style="border-bottom:none !important">
+        <li class="active"><a style="color:white" data-toggle="tab" href="#home"><button class="btn btn-light btn-sm"
+              style="margin-left:3px">Home</button></a></li>
+        <li><a style="color:white" data-toggle="tab" href="#menu1"><button class="btn btn-light btn-sm"
+              style="margin-left:3px">Team 1</button></a></li>
+        <li><a style="color:white" data-toggle="tab" href="#menu2"><button class="btn btn-light btn-sm"
+              style="margin-left:3px">Team 2</button></a></li>
+      </ul>
+      <form method="POST" action="/set" style="width:100px">
+          <input name="setOvers" class="" type="number" style="width: 50%" placeholder="set">
+          <button class="btn btn-light btn-sm" type="submit">Set</button>
+        </form>      
+    </nav>
+
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <h3>HOME</h3>
+        <p class="">This is a simple widget that calculates cricket score.</p>
+      </div>
+      <div id="menu1" class="tab-pane fade">
+        <p class="">Team 1 Score: <b>{{team1}}</b></p>
+        <div style="margin-bottom: 5px"></div>
+        <form method="POST" action="/add/team1">
+          <input name="inputB" class="form-control" type="text" minlength="6" maxlength="6" style="width: 50%"
+            placeholder="e.g 1-6w-5">
+          <div style="margin-bottom: 5px"></div>
+          <button class="btn btn-primary btn-md" type="submit">submit score</button>
+        </form>
+        <div>{{message}}</div>
+      </div>
+      <div id="menu2" class="tab-pane fade">
+        <p class="">Team 2 Score: <b>{{team2}}</b></p>
+        <div style="margin-bottom: 5px"></div>
+        <form method="POST" action="/add/team2">
+          <input name="inputB" class="form-control" type="text" minlength="6" maxlength="6" style="width: 50%"
+            placeholder="e.g 1-6w-5">
+          <div style="margin-bottom: 5px"></div>
+          <button class="btn btn-primary btn-md" type="submit">submit score</button>
+        </form>
+        <div>{{message}}</div>
+      </div>
+      {{#if alert}}
+  <div class="alert alert-warning" role="alert">
+        {{alert}}
+      </div>
+      {{/if}}
+    </div>
